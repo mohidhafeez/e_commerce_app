@@ -81,7 +81,7 @@ class LoginView extends StatelessWidget {
                           "Email",
                           style: textTheme.labelMedium,
                         ),
-                        UnderLineTextField(),
+                        const UnderLineTextField(),
                         SizedBox(
                           height: SizeConfig.heightMultiplier * 4,
                         ),
@@ -128,12 +128,12 @@ class LoginView extends StatelessWidget {
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomePageView())),
+                                  builder: (context) => const HomePageView())),
                           child: Container(
                             height: SizeConfig.heightMultiplier * 6,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
-                                color: Color(0xff7496C2)),
+                                color: const Color(0xff7496C2)),
                             child: const Center(
                               child: Text(
                                 "LOGIN",
@@ -154,7 +154,7 @@ class LoginView extends StatelessWidget {
                               width: SizeConfig.widthMultiplier * 38,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
-                                  color: Color(0xffD3493C)),
+                                  color: const Color(0xffD3493C)),
                               child: Center(
                                 child: Center(
                                   child: IconButton(
@@ -172,7 +172,7 @@ class LoginView extends StatelessWidget {
                               width: SizeConfig.widthMultiplier * 38,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
-                                  color: Color(0xff1871E5)),
+                                  color: const Color(0xff1871E5)),
                               child: Center(
                                 child: IconButton(
                                   onPressed: () {},

@@ -1,6 +1,7 @@
-import 'package:e_commerce_app/models/story_images.dart';
 import 'package:e_commerce_app/utils/size_config.dart';
 import 'package:flutter/material.dart';
+
+import '../../../models/Model.dart';
 
 class StoryView extends StatefulWidget {
   const StoryView({super.key});
