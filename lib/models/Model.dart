@@ -118,3 +118,55 @@ List<CuratedStores> shoesDetails = [
       reviews: 1290,
       storeName: "KBR Store"),
 ];
+
+class BrandStores {
+  final String imageUrl;
+  final String brandName;
+  final String storeName;
+  final double rating;
+  final int reviews;
+  BrandStores(
+      {required this.brandName,
+      required this.imageUrl,
+      required this.rating,
+      required this.reviews,
+      required this.storeName});
+}
+
+List<CuratedStores> storeDetails = [
+  CuratedStores(
+      brandName: "Eikund",
+      imageUrl:
+          "https://images.pexels.com/photos/1458681/pexels-photo-1458681.jpeg?auto=compress&cs=tinysrgb&w=600",
+      rating: 4.6,
+      reviews: 1024,
+      storeName: "KBR Store"),
+  CuratedStores(
+      brandName: "H&M",
+      imageUrl:
+          "https://images.pexels.com/photos/916446/pexels-photo-916446.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.5,
+      reviews: 998,
+      storeName: "KBR Store"),
+  CuratedStores(
+      brandName: "Outfitters",
+      imageUrl:
+          "https://images.pexels.com/photos/2303337/pexels-photo-2303337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.6,
+      reviews: 996,
+      storeName: "KBR Store"),
+  CuratedStores(
+      brandName: "Levi's",
+      imageUrl:
+          "https://images.pexels.com/photos/904289/pexels-photo-904289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.6,
+      reviews: 1110,
+      storeName: "KBR Store"),
+  CuratedStores(
+      brandName: "Dior",
+      imageUrl:
+          "https://images.pexels.com/photos/1458681/pexels-photo-1458681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      rating: 4.6,
+      reviews: 1290,
+      storeName: "KBR Store"),
+];
