@@ -9,7 +9,7 @@ class CustomAppBar extends StatelessWidget {
     return AppBar(
       title: const Text(
         "VENTI",
-        style: TextStyle(color: Color(0xff536F95)),
+        style: TextStyle(color: Color(0xff536F95), fontSize: 16),
       ),
       centerTitle: true,
       backgroundColor: Colors.white,

@@ -14,7 +14,7 @@ class _StoryViewState extends State<StoryView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
+      padding: const EdgeInsets.only(top: 8, bottom: 8, left: 12),
       child: SizedBox(
         height: SizeConfig.heightMultiplier * 10,
         child: ListView.builder(
@@ -34,7 +34,7 @@ class _StoryViewState extends State<StoryView> {
                   shape: BoxShape.circle,
                 ),
                 child: CircleAvatar(
-                  radius: 35,
+                  radius: 28,
                   backgroundImage: NetworkImage(
                     imageURLs[index],
                   ),

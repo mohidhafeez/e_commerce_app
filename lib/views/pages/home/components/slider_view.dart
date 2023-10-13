@@ -30,7 +30,7 @@ class _SliderViewState extends State<SliderView> {
     return Stack(
       children: [
         SizedBox(
-          height: SizeConfig.heightMultiplier * 25,
+          height: SizeConfig.heightMultiplier * 23,
           width: SizeConfig.widthMultiplier * 100,
           child: PageView.builder(
             onPageChanged: (index) {
@@ -48,7 +48,7 @@ class _SliderViewState extends State<SliderView> {
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
                             image: NetworkImage(content[index].imageURL),
                             fit: BoxFit.cover)),
@@ -107,7 +107,7 @@ class _SliderViewState extends State<SliderView> {
           ),
         ),
         Positioned(
-          top: 170, // Adjust the top position as needed
+          top: 165, // Adjust the top position as needed
           left: 0,
           right: 250,
           child: Row(
