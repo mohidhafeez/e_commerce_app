@@ -83,7 +83,7 @@ class CuratedStores {
 
 List<CuratedStores> shoesDetails = [
   CuratedStores(
-      brandName: "Nike",
+      brandName: "LV",
       imageUrl:
           "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=600",
       rating: 4.6,
@@ -169,4 +169,106 @@ List<CuratedStores> storeDetails = [
       rating: 4.6,
       reviews: 1290,
       storeName: "KBR Store"),
+];
+
+class AnyTime {
+  final String imagePath;
+  final String title;
+  final String storeName;
+  final double rating;
+  final int reviews;
+  final int time;
+  AnyTime(
+      {required this.title,
+      required this.imagePath,
+      required this.rating,
+      required this.reviews,
+      required this.storeName,
+      required this.time});
+}
+
+List<AnyTime> anyTimeDetails = [
+  AnyTime(
+      title: "Skincare Products by Sadia",
+      imagePath: 'assets/images/1.png',
+      rating: 4.6,
+      reviews: 1024,
+      storeName: "KBR Store",
+      time: 5),
+  AnyTime(
+      title: "Skincare Products by Aleena",
+      imagePath: 'assets/images/2.png',
+      rating: 4.5,
+      reviews: 998,
+      storeName: "KBR Store",
+      time: 5),
+  AnyTime(
+      title: "Skincare Products by Nazish",
+      imagePath: 'assets/images/3.png',
+      rating: 4.6,
+      reviews: 996,
+      storeName: "KBR Store",
+      time: 6),
+  AnyTime(
+      title: "Skincare Products by Shazia",
+      imagePath: 'assets/images/4.png',
+      rating: 4.6,
+      reviews: 1110,
+      storeName: "KBR Store",
+      time: 4),
+  AnyTime(
+      title: "DiorSkincare Products by Ayesha",
+      imagePath: 'assets/images/5.png',
+      rating: 4.6,
+      reviews: 1290,
+      storeName: "KBR Store",
+      time: 5),
+];
+
+class ServiceProvider {
+  final String imagePath;
+  final String title;
+
+  final double rating;
+  final int reviews;
+
+  ServiceProvider({
+    required this.title,
+    required this.imagePath,
+    required this.rating,
+    required this.reviews,
+  });
+}
+
+List<ServiceProvider> serviceProviderDetails = [
+  ServiceProvider(
+    title: "Tom & Jay",
+    imagePath: 'assets/images/h1.png',
+    rating: 4.6,
+    reviews: 1024,
+  ),
+  ServiceProvider(
+    title: "British Barbar",
+    imagePath: 'assets/images/h2.png',
+    rating: 4.5,
+    reviews: 998,
+  ),
+  ServiceProvider(
+    title: "The Urban",
+    imagePath: 'assets/images/h3.png',
+    rating: 4.6,
+    reviews: 996,
+  ),
+  ServiceProvider(
+    title: "Style Cave",
+    imagePath: 'assets/images/h4.png',
+    rating: 4.6,
+    reviews: 1110,
+  ),
+  ServiceProvider(
+    title: "Gold Barbar",
+    imagePath: 'assets/images/h5.png',
+    rating: 4.6,
+    reviews: 1290,
+  ),
 ];

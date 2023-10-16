@@ -2,7 +2,9 @@ import 'package:e_commerce_app/components/custom_appbar.dart';
 import 'package:e_commerce_app/constants/icons.dart';
 import 'package:e_commerce_app/models/Model.dart';
 import 'package:e_commerce_app/utils/size_config.dart';
+import 'package:e_commerce_app/views/pages/home/components/anytime_tile.dart';
 import 'package:e_commerce_app/views/pages/home/components/redeem_tile.dart';
+import 'package:e_commerce_app/views/pages/home/components/service_provider_tile.dart';
 import 'package:e_commerce_app/views/pages/home/components/slider_view.dart';
 import 'package:e_commerce_app/views/pages/home/scrollable_tile_1by1.dart';
 import 'package:e_commerce_app/views/pages/home/story_view.dart';
@@ -303,6 +305,100 @@ class _HomePageViewState extends State<HomePageView> {
                       }),
                     ),
                   )
+                ],
+              ),
+            ),
+            //anytime sellers
+            Container(
+              height: SizeConfig.heightMultiplier * 53,
+              color: Color.fromARGB(255, 238, 238, 238),
+              // color: Colors.pink,
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Any Time Seller",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          "SEE ALL",
+                          style: TextStyle(color: Color(0xffB7B7B7)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: SizeConfig.heightMultiplier * 40,
+                    // color: Colors.pink,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: anyTimeDetails.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(left: 22),
+                            child: AnyTimeTile(
+                                title: anyTimeDetails[index].title,
+                                imagePath: anyTimeDetails[index].imagePath,
+                                rating: anyTimeDetails[index].rating,
+                                reviews: anyTimeDetails[index].reviews,
+                                storeName: anyTimeDetails[index].storeName,
+                                time: anyTimeDetails[index].time),
+                          );
+                        }),
+                  ),
+                ],
+              ),
+            ),
+            //
+            SizedBox(
+              height: SizeConfig.heightMultiplier * 55,
+              // color: Colors.red,
+              child: Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.all(25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Service Provider",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          "SEE ALL",
+                          style: TextStyle(color: Color(0xffB7B7B7)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Service Provider
+
+                  SizedBox(
+                    height: SizeConfig.heightMultiplier * 28,
+                    // color: Colors.pink,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: serviceProviderDetails.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                              padding: const EdgeInsets.only(left: 12),
+                              child: ServiceProviderTile(
+                                title: serviceProviderDetails[index].title,
+                                imagePath:
+                                    serviceProviderDetails[index].imagePath,
+                                rating: serviceProviderDetails[index].rating,
+                                reviews: serviceProviderDetails[index].reviews,
+                              ));
+                        }),
+                  ),
                 ],
               ),
             )
