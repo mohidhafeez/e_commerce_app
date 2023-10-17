@@ -2,49 +2,57 @@ import 'package:e_commerce_app/components/custom_appbar.dart';
 import 'package:e_commerce_app/constants/icons.dart';
 import 'package:e_commerce_app/models/Model.dart';
 import 'package:e_commerce_app/utils/size_config.dart';
+import 'package:e_commerce_app/views/pages/Live%20Tracking/live_tracking_screen.dart';
+
 import 'package:e_commerce_app/views/pages/home/components/anytime_tile.dart';
 import 'package:e_commerce_app/views/pages/home/components/redeem_tile.dart';
 import 'package:e_commerce_app/views/pages/home/components/service_provider_tile.dart';
 import 'package:e_commerce_app/views/pages/home/components/slider_view.dart';
 import 'package:e_commerce_app/views/pages/home/scrollable_tile_1by1.dart';
 import 'package:e_commerce_app/views/pages/home/story_view.dart';
+
 import 'package:flutter/material.dart';
 
-class HomePageView extends StatefulWidget {
-  const HomePageView({
-    super.key,
-  });
+class HomeScreenView extends StatefulWidget {
+  const HomeScreenView({super.key});
 
   @override
-  State<HomePageView> createState() => _HomePageViewState();
+  State<HomeScreenView> createState() => _HomeScreenViewState();
 }
 
-class _HomePageViewState extends State<HomePageView> {
-  List<String> iconPath = [
-    'assets/icons/shirt 1.png',
-    'assets/icons/dribbble 1.png',
-    'assets/icons/speaker 1.png',
-    'assets/icons/watch 1.png',
-    'assets/icons/timer 1.png',
-  ];
-  List<String> categoryName = [
-    "Clothes",
-    "Sports",
-    "Electronic",
-    "Watches",
-    "Stop",
-  ];
-  List<int> totalItems = [500, 400, 600, 200, 100];
-
+class _HomeScreenViewState extends State<HomeScreenView> {
   @override
   Widget build(BuildContext context) {
+    // int currentIndex = 0;
+    List<String> iconPath = [
+      'assets/icons/shirt 1.png',
+      'assets/icons/dribbble 1.png',
+      'assets/icons/speaker 1.png',
+      'assets/icons/watch 1.png',
+      'assets/icons/timer 1.png',
+    ];
+    List<String> categoryName = [
+      "Clothes",
+      "Sports",
+      "Electronic",
+      "Watches",
+      "Stop",
+    ];
+    List<int> totalItems = [500, 400, 600, 200, 100];
+
+    // void updateIndex(int index) {
+    //   setState(() {
+    //     currentIndex = index;
+    //   });
+    // }
+
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 245, 245, 245),
-      drawer: const Drawer(),
-      appBar: const PreferredSize(
-        preferredSize:
-            Size.fromHeight(kToolbarHeight), // Adjust the height as needed
-        child: CustomAppBar(),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(
+            SizeConfig.heightMultiplier * 8), // Set your desired height here
+        child: CustomAppBar(
+          title: "VENTI",
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -71,99 +79,107 @@ class _HomePageViewState extends State<HomePageView> {
                         SizedBox(
                           height: SizeConfig.heightMultiplier * 3,
                         ),
-                        Container(
-                          height: SizeConfig.heightMultiplier * 19,
-                          width: SizeConfig.heightMultiplier * 100,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: const Color(0xffE4EDF4)),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 15.0, horizontal: 16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          AppIcons.stopWatch,
-                                          scale: 4,
-                                        ),
-                                        SizedBox(
-                                          width:
-                                              SizeConfig.heightMultiplier * 2,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              "8:50 AM",
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                            SizedBox(
-                                              height:
-                                                  SizeConfig.heightMultiplier *
-                                                      1,
-                                            ),
-                                            const Text("Delivery Time"),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          AppIcons.location,
-                                          scale: 4,
-                                        ),
-                                        SizedBox(
-                                          width:
-                                              SizeConfig.heightMultiplier * 2,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Text(
-                                              "Gour City",
-                                              style: TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                            SizedBox(
-                                              height:
-                                                  SizeConfig.heightMultiplier *
-                                                      1,
-                                            ),
-                                            const Text("Delivery Location"),
-                                          ],
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: SizeConfig.heightMultiplier * 2,
-                                ),
-                                Container(
-                                  height: SizeConfig.heightMultiplier * 08,
-                                  width: SizeConfig.widthMultiplier * 100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    image: const DecorationImage(
-                                        image:
-                                            AssetImage('assets/images/map.png'),
-                                        fit: BoxFit.cover),
+                        GestureDetector(
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LiveTrackingScreen())),
+                          child: Container(
+                            height: SizeConfig.heightMultiplier * 19,
+                            width: SizeConfig.heightMultiplier * 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: const Color(0xffE4EDF4)),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 15.0, horizontal: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            AppIcons.stopWatch,
+                                            scale: 4,
+                                          ),
+                                          SizedBox(
+                                            width:
+                                                SizeConfig.heightMultiplier * 2,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const Text(
+                                                "8:50 AM",
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                        .heightMultiplier *
+                                                    1,
+                                              ),
+                                              const Text("Delivery Time"),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            AppIcons.location,
+                                            scale: 4,
+                                          ),
+                                          SizedBox(
+                                            width:
+                                                SizeConfig.heightMultiplier * 2,
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              const Text(
+                                                "Gour City",
+                                                style: TextStyle(
+                                                    fontSize: 14,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                              SizedBox(
+                                                height: SizeConfig
+                                                        .heightMultiplier *
+                                                    1,
+                                              ),
+                                              const Text("Delivery Location"),
+                                            ],
+                                          )
+                                        ],
+                                      )
+                                    ],
                                   ),
-                                ),
-                              ],
+                                  SizedBox(
+                                    height: SizeConfig.heightMultiplier * 2,
+                                  ),
+                                  Container(
+                                    height: SizeConfig.heightMultiplier * 7.5,
+                                    width: SizeConfig.widthMultiplier * 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      image: const DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/map.png'),
+                                          fit: BoxFit.cover),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -311,7 +327,7 @@ class _HomePageViewState extends State<HomePageView> {
             //anytime sellers
             Container(
               height: SizeConfig.heightMultiplier * 53,
-              color: Color.fromARGB(255, 238, 238, 238),
+              color: const Color.fromARGB(255, 238, 238, 238),
               // color: Colors.pink,
               child: Column(
                 children: [

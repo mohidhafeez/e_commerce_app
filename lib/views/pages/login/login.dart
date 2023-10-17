@@ -1,7 +1,7 @@
 import 'package:e_commerce_app/components/underline_textfield.dart';
 import 'package:e_commerce_app/constants/icons.dart';
 import 'package:e_commerce_app/utils/size_config.dart';
-import 'package:e_commerce_app/views/pages/home/home.dart';
+import 'package:e_commerce_app/views/pages/home/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -128,7 +128,8 @@ class LoginView extends StatelessWidget {
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const HomePageView())),
+                                  builder: (context) =>
+                                      const BottomNavBarScreen())),
                           child: Container(
                             height: SizeConfig.heightMultiplier * 6,
                             decoration: BoxDecoration(

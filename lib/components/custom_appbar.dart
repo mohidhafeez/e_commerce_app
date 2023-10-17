@@ -2,14 +2,19 @@ import 'package:e_commerce_app/constants/icons.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  final String title;
+
+  CustomAppBar({
+    super.key,
+    this.title = "",
+  });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(
-        "VENTI",
-        style: TextStyle(color: Color(0xff536F95), fontSize: 16),
+      title: Text(
+        title,
+        style: const TextStyle(color: Color(0xff536F95), fontSize: 16),
       ),
       centerTitle: true,
       backgroundColor: Colors.white,
@@ -18,11 +23,13 @@ class CustomAppBar extends StatelessWidget {
       leading: GestureDetector(
         onTap: () => Scaffold.of(context).openDrawer(),
         child: Transform.scale(
-            scale: 0.5,
-            child: Image(
-                image: AssetImage(
+          scale: 0.5,
+          child: Image(
+            image: AssetImage(
               AppIcons.drawer,
-            ))),
+            ),
+          ),
+        ),
       ),
       actions: [
         IconButton(

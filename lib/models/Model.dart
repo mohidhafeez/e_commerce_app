@@ -1,35 +1,35 @@
-class Slider {
+class SliderData {
   final String tag;
   final String title;
   final String imageURL;
   final int price;
-  Slider(
+  SliderData(
       {required this.tag,
       required this.imageURL,
       required this.price,
       required this.title});
 }
 
-List<Slider> content = [
-  Slider(
+List<SliderData> content = [
+  SliderData(
       tag: "New",
       imageURL:
           "https://images.pexels.com/photos/375889/pexels-photo-375889.jpeg?auto=compress&cs=tinysrgb&w=600",
       price: 2000,
       title: "Gifts Hampers"),
-  Slider(
+  SliderData(
       tag: "",
       imageURL:
           "https://images.pexels.com/photos/860227/pexels-photo-860227.jpeg?auto=compress&cs=tinysrgb&w=600",
       price: 1000,
       title: "Ladies Bags"),
-  Slider(
+  SliderData(
       tag: "New",
       imageURL:
           "https://images.pexels.com/photos/375889/pexels-photo-375889.jpeg?auto=compress&cs=tinysrgb&w=600",
       price: 4000,
       title: "Makeover products"),
-  Slider(
+  SliderData(
       tag: "",
       imageURL:
           "https://images.pexels.com/photos/860227/pexels-photo-860227.jpeg?auto=compress&cs=tinysrgb&w=600",

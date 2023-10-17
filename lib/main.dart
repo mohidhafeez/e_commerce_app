@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/views/pages/home/bottom_navbar.dart';
+import 'package:e_commerce_app/views/pages/home/home_view.dart';
 import 'package:e_commerce_app/views/pages/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,50 +25,12 @@ class MyApp extends StatelessWidget {
             SizeConfig().init(constraints, orientation);
             return MaterialApp(
               theme: ThemeData(
-                textTheme: TextTheme(
-                  labelSmall: TextStyle(
-                      color: Colors.grey,
-                      fontWeight: FontWeight.w500,
-                      fontSize: SizeConfig.textMultiplier * 1.2),
-                  labelMedium: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700,
-                    fontSize: SizeConfig.textMultiplier * 1.8,
-                  ),
-                  bodyLarge: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: SizeConfig.textMultiplier * 1.8),
-                  bodyMedium: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: SizeConfig.textMultiplier * 1.6),
-                  bodySmall: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: SizeConfig.textMultiplier * 1.4),
-                  displaySmall: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: SizeConfig.textMultiplier * 1.2),
-                  headlineLarge: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: SizeConfig.textMultiplier * 2.8),
-                  headlineMedium: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: SizeConfig.textMultiplier * 2.3),
-                  headlineSmall: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: SizeConfig.textMultiplier * 2.2),
-                ),
+                textTheme: TextTheme(),
                 fontFamily: 'Poppins',
                 scaffoldBackgroundColor: Colors.white,
               ),
               debugShowCheckedModeBanner: false,
-              home: LoginView(),
+              home: BottomNavBarScreen(),
             );
           },
         );

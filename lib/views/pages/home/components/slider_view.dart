@@ -44,7 +44,7 @@ class _SliderViewState extends State<SliderView> {
             itemBuilder: (_, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
+                child: SizedBox(
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -136,7 +136,7 @@ class DotIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
       height: 3,
       width: isActive ? 15 : 5,
       decoration: BoxDecoration(
