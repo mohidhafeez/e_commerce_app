@@ -117,6 +117,27 @@ List<CuratedStores> shoesDetails = [
       rating: 4.6,
       reviews: 1290,
       storeName: "KBR Store"),
+  CuratedStores(
+      brandName: "Puma",
+      imageUrl:
+          "https://images.pexels.com/photos/15036819/pexels-photo-15036819/free-photo-of-close-up-shot-of-a-puma-rubber-shoes.jpeg?auto=compress&cs=tinysrgb&w=600",
+      rating: 4.5,
+      reviews: 998,
+      storeName: "KBR Store"),
+  CuratedStores(
+      brandName: "LV",
+      imageUrl:
+          "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=600",
+      rating: 4.6,
+      reviews: 1024,
+      storeName: "KBR Store"),
+  CuratedStores(
+      brandName: "LV",
+      imageUrl:
+          "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=600",
+      rating: 4.6,
+      reviews: 1024,
+      storeName: "KBR Store"),
 ];
 
 class BrandStores {

@@ -12,4 +12,5 @@ class AppIcons {
   static String cart = 'assets/icons/cart.png';
   static String location = "assets/icons/location.png";
   static String call = "assets/icons/call.png";
+  static String search = "assets/icons/search-normal.png";
 }

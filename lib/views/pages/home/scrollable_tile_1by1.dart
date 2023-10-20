@@ -20,24 +20,63 @@ class ScrollableTile extends StatefulWidget {
 }
 
 class _ScrollableTileState extends State<ScrollableTile> {
+  bool isSelected = false;
+  void toggleImage() {
+    setState(() {
+      isSelected = !isSelected;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        child: Padding(
-      padding: const EdgeInsets.all(10.0),
+    return Container(
+      // color: Colors.grey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: SizedBox(
-              height: SizeConfig.heightMultiplier * 20,
-              width: SizeConfig.widthMultiplier * 40,
-              child: Image.network(
-                widget.image,
-                fit: BoxFit.cover,
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: SizedBox(
+                  height: SizeConfig.heightMultiplier * 20,
+                  width: SizeConfig.widthMultiplier * 42,
+                  child: Image.network(
+                    widget.image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
+              Positioned(
+                top: SizeConfig.heightMultiplier * 1,
+                left: SizeConfig.widthMultiplier * 26,
+                child: IconButton(
+                    onPressed: () => toggleImage(),
+                    icon: isSelected
+                        ? Container(
+                            height: SizeConfig.heightMultiplier * 7,
+                            width: SizeConfig.widthMultiplier * 7,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: Center(
+                                child: Image.asset(
+                              "assets/images/selectedheart.png",
+                              height: SizeConfig.imageSizeMultiplier * 4,
+                            )))
+                        : Container(
+                            height: SizeConfig.heightMultiplier * 7,
+                            width: SizeConfig.widthMultiplier * 7,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle, color: Colors.white),
+                            child: Center(
+                                child: Image.asset(
+                              "assets/images/heart.png",
+                              height: SizeConfig.imageSizeMultiplier * 4,
+                            )))),
+              )
+            ],
           ),
           SizedBox(
             height: SizeConfig.heightMultiplier * 1,
@@ -81,6 +120,6 @@ class _ScrollableTileState extends State<ScrollableTile> {
           ),
         ],
       ),
-    ));
+    );
   }
 }

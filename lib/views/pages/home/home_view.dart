@@ -2,6 +2,7 @@ import 'package:e_commerce_app/components/custom_appbar.dart';
 import 'package:e_commerce_app/constants/icons.dart';
 import 'package:e_commerce_app/models/Model.dart';
 import 'package:e_commerce_app/utils/size_config.dart';
+import 'package:e_commerce_app/views/pages/Curated%20Store/curated_store.dart';
 import 'package:e_commerce_app/views/pages/Live%20Tracking/live_tracking_screen.dart';
 
 import 'package:e_commerce_app/views/pages/home/components/anytime_tile.dart';
@@ -83,7 +84,8 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => LiveTrackingScreen())),
+                                  builder: (context) =>
+                                      const LiveTrackingScreen())),
                           child: Container(
                             height: SizeConfig.heightMultiplier * 19,
                             width: SizeConfig.heightMultiplier * 100,
@@ -253,76 +255,101 @@ class _HomeScreenViewState extends State<HomeScreenView> {
               ),
             ),
             //after cateogies list
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const RedeemTile(),
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 3,
-                  ),
-                  //Curated Stores
-                  const Text(
-                    "Curated Stores",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 2,
-                  ),
-                  const Text(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const RedeemTile(),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 3,
+                ),
+                //Curated Stores
+                TextButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CuratedStore())),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: const Text(
+                        "Curated Stores",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black),
+                      ),
+                    )),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 2,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: const Text(
                     "Trending",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  // row of shoes collection
+                ),
+                // row of shoes collection
 
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 31.5,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: shoesDetails.length,
-                      itemBuilder: ((context, index) {
-                        return ScrollableTile(
-                            name: shoesDetails[index].brandName,
-                            image: shoesDetails[index].imageUrl,
-                            rating: shoesDetails[index].rating,
-                            reviews: shoesDetails[index].reviews,
-                            storeName: shoesDetails[index].storeName);
-                      }),
-                    ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        height: SizeConfig.heightMultiplier * 31.5,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: shoesDetails.length,
+                          itemBuilder: ((context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 12.0),
+                              child: ScrollableTile(
+                                  name: shoesDetails[index].brandName,
+                                  image: shoesDetails[index].imageUrl,
+                                  rating: shoesDetails[index].rating,
+                                  reviews: shoesDetails[index].reviews,
+                                  storeName: shoesDetails[index].storeName),
+                            );
+                          }),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 2,
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 2,
+                ),
+                const Text(
+                  "Special For You",
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 2,
+                ),
+                SizedBox(
+                  height: SizeConfig.heightMultiplier * 31.5,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: storeDetails.length,
+                    itemBuilder: ((context, index) {
+                      return ScrollableTile(
+                          name: storeDetails[index].brandName,
+                          image: storeDetails[index].imageUrl,
+                          rating: storeDetails[index].rating,
+                          reviews: storeDetails[index].reviews,
+                          storeName: storeDetails[index].storeName);
+                    }),
                   ),
-                  const Text(
-                    "Special For You",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 2,
-                  ),
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 31.5,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: storeDetails.length,
-                      itemBuilder: ((context, index) {
-                        return ScrollableTile(
-                            name: storeDetails[index].brandName,
-                            image: storeDetails[index].imageUrl,
-                            rating: storeDetails[index].rating,
-                            reviews: storeDetails[index].reviews,
-                            storeName: storeDetails[index].storeName);
-                      }),
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
             //anytime sellers
             Container(
