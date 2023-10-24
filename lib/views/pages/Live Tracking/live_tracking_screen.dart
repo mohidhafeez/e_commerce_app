@@ -22,8 +22,9 @@ class _LiveTrackingScreenState extends State<LiveTrackingScreen> {
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.white,
-          leading: const Icon(
-            CupertinoIcons.back,
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(CupertinoIcons.back),
             color: Colors.black,
           ),
           title: const Text(

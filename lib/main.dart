@@ -1,7 +1,4 @@
-import 'package:e_commerce_app/views/pages/Curated%20Store/curated_store.dart';
-import 'package:e_commerce_app/views/pages/filter/filter_screen.dart';
-import 'package:e_commerce_app/views/pages/home/bottom_navbar.dart';
-import 'package:e_commerce_app/views/pages/home/home_view.dart';
+import 'package:e_commerce_app/views/pages/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -31,7 +28,7 @@ class MyApp extends StatelessWidget {
                 scaffoldBackgroundColor: Colors.white,
               ),
               debugShowCheckedModeBanner: false,
-              home: FilterScreen(),
+              home: LoginView(),
             );
           },
         );

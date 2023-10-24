@@ -1,34 +1,93 @@
 import 'package:e_commerce_app/components/circled_tile.dart';
 import 'package:e_commerce_app/constants/colors.dart';
+import 'package:e_commerce_app/constants/icons.dart';
 import 'package:e_commerce_app/utils/size_config.dart';
+import 'package:e_commerce_app/views/pages/Search/components/recent_search_tile.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FilterScreen extends StatelessWidget {
-  FilterScreen({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: GestureDetector(
-          onTap: () => showModalBottomSheet(
-              backgroundColor: Colors.white,
-              isScrollControlled: true,
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20))),
-              context: context,
-              builder: (BuildContext context) {
-                return Helo();
-              }),
-          child: Container(
-            height: 40,
-            width: 150,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), color: Colors.amber),
-            child: const Center(child: Text("OPEN")),
-          ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: Icon(CupertinoIcons.back),
+                    ),
+                    SizedBox(
+                      width: SizeConfig.widthMultiplier * 70,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            hintText: "Search a curated store",
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey))),
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () => showModalBottomSheet(
+                            backgroundColor: Colors.white,
+                            isScrollControlled: true,
+                            shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20))),
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Helo();
+                            }),
+                        icon: Image.asset(
+                          AppIcons.filter,
+                          height: SizeConfig.imageSizeMultiplier * 6,
+                        ))
+                  ]),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.widthMultiplier * 5),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: SizeConfig.heightMultiplier * 4,
+                        bottom: SizeConfig.heightMultiplier * 1),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Recent Search",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 16),
+                        ),
+                        Text(
+                          "CLEAR ALL",
+                          style: TextStyle(color: Color(0xffB7B7B7)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  //tiles
+                  SizedBox(
+                    height: SizeConfig.heightMultiplier * 2,
+                  ),
+                  //tiles
+                  RecentSearchTile(),
+                  RecentSearchTile(),
+                  RecentSearchTile(),
+                  RecentSearchTile(),
+                  RecentSearchTile(),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -13,9 +13,15 @@ class RedeemTile extends StatelessWidget {
             height: SizeConfig.heightMultiplier * 9,
             width: SizeConfig.widthMultiplier * 100,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade300,
+                      offset: Offset(3, 3),
+                      blurRadius: 50,
+                      spreadRadius: 10)
+                ]),
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 23.0, vertical: 10),

@@ -3,6 +3,7 @@ import 'package:e_commerce_app/constants/colors.dart';
 import 'package:e_commerce_app/constants/icons.dart';
 import 'package:e_commerce_app/models/Model.dart';
 import 'package:e_commerce_app/utils/size_config.dart';
+import 'package:e_commerce_app/views/pages/Search/search_view.dart';
 import 'package:e_commerce_app/views/pages/home/scrollable_tile_1by1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,10 @@ class _CuratedStoreState extends State<CuratedStore> {
           Padding(
             padding: const EdgeInsets.only(right: 4.0),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SearchScreen()));
+                },
                 icon: Image.asset(
                   AppIcons.search,
                   height: SizeConfig.imageSizeMultiplier * 6,
@@ -53,8 +57,9 @@ class _CuratedStoreState extends State<CuratedStore> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: const Icon(
-          CupertinoIcons.back,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(CupertinoIcons.back),
           color: Colors.black,
         ),
         title: const Text(
@@ -130,6 +135,7 @@ class _CuratedStoreState extends State<CuratedStore> {
               padding: EdgeInsets.only(left: SizeConfig.widthMultiplier * 3.5),
               child: StaggeredGrid.count(
                 crossAxisCount: 2,
+                mainAxisSpacing: SizeConfig.widthMultiplier * 5,
                 children: [
                   ...List.generate(
                       shoesDetails.length,

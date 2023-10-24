@@ -258,9 +258,14 @@ class _HomeScreenViewState extends State<HomeScreenView> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const RedeemTile(),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      vertical: SizeConfig.heightMultiplier * 4,
+                      horizontal: SizeConfig.widthMultiplier * 4),
+                  child: const RedeemTile(),
+                ),
                 SizedBox(
-                  height: SizeConfig.heightMultiplier * 3,
+                  height: SizeConfig.heightMultiplier * 1,
                 ),
                 //Curated Stores
                 TextButton(
@@ -279,10 +284,10 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                       ),
                     )),
                 SizedBox(
-                  height: SizeConfig.heightMultiplier * 2,
+                  height: SizeConfig.heightMultiplier * 1,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.only(bottom: 16, left: 16),
                   child: const Text(
                     "Trending",
                     style: TextStyle(
@@ -326,29 +331,46 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                 SizedBox(
                   height: SizeConfig.heightMultiplier * 2,
                 ),
-                const Text(
-                  "Special For You",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: const Text(
+                    "Special For You",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                  ),
                 ),
                 SizedBox(
                   height: SizeConfig.heightMultiplier * 2,
                 ),
-                SizedBox(
-                  height: SizeConfig.heightMultiplier * 31.5,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemCount: storeDetails.length,
-                    itemBuilder: ((context, index) {
-                      return ScrollableTile(
-                          name: storeDetails[index].brandName,
-                          image: storeDetails[index].imageUrl,
-                          rating: storeDetails[index].rating,
-                          reviews: storeDetails[index].reviews,
-                          storeName: storeDetails[index].storeName);
-                    }),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        height: SizeConfig.heightMultiplier * 31.5,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: storeDetails.length,
+                          itemBuilder: ((context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 12.0),
+                              child: ScrollableTile(
+                                  name: storeDetails[index].brandName,
+                                  image: storeDetails[index].imageUrl,
+                                  rating: storeDetails[index].rating,
+                                  reviews: storeDetails[index].reviews,
+                                  storeName: storeDetails[index].storeName),
+                            );
+                          }),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      )
+                    ],
                   ),
-                )
+                ),
               ],
             ),
             //anytime sellers
@@ -375,25 +397,37 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 40,
-                    // color: Colors.pink,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: anyTimeDetails.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(left: 22),
-                            child: AnyTimeTile(
-                                title: anyTimeDetails[index].title,
-                                imagePath: anyTimeDetails[index].imagePath,
-                                rating: anyTimeDetails[index].rating,
-                                reviews: anyTimeDetails[index].reviews,
-                                storeName: anyTimeDetails[index].storeName,
-                                time: anyTimeDetails[index].time),
-                          );
-                        }),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: SizeConfig.heightMultiplier * 40,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: anyTimeDetails.length,
+                            itemBuilder: ((context, index) {
+                              return Padding(
+                                  padding: const EdgeInsets.only(left: 12.0),
+                                  child: AnyTimeTile(
+                                      title: anyTimeDetails[index].title,
+                                      imagePath:
+                                          anyTimeDetails[index].imagePath,
+                                      rating: anyTimeDetails[index].rating,
+                                      reviews: anyTimeDetails[index].reviews,
+                                      storeName:
+                                          anyTimeDetails[index].storeName,
+                                      time: anyTimeDetails[index].time));
+                            }),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 12,
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -423,24 +457,37 @@ class _HomeScreenViewState extends State<HomeScreenView> {
                   ),
                   // Service Provider
 
-                  SizedBox(
-                    height: SizeConfig.heightMultiplier * 28,
-                    // color: Colors.pink,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: serviceProviderDetails.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                              padding: const EdgeInsets.only(left: 12),
-                              child: ServiceProviderTile(
-                                title: serviceProviderDetails[index].title,
-                                imagePath:
-                                    serviceProviderDetails[index].imagePath,
-                                rating: serviceProviderDetails[index].rating,
-                                reviews: serviceProviderDetails[index].reviews,
-                              ));
-                        }),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: SizeConfig.heightMultiplier * 28,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            physics: const NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: serviceProviderDetails.length,
+                            itemBuilder: ((context, index) {
+                              return Padding(
+                                  padding: const EdgeInsets.only(left: 12.0),
+                                  child: ServiceProviderTile(
+                                      imagePath: serviceProviderDetails[index]
+                                          .imagePath,
+                                      rating:
+                                          serviceProviderDetails[index].rating,
+                                      reviews:
+                                          serviceProviderDetails[index].reviews,
+                                      title:
+                                          serviceProviderDetails[index].title));
+                            }),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 12,
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),

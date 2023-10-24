@@ -13,4 +13,5 @@ class AppIcons {
   static String location = "assets/icons/location.png";
   static String call = "assets/icons/call.png";
   static String search = "assets/icons/search-normal.png";
+  static String filter = "assets/icons/Filter.png";
 }
