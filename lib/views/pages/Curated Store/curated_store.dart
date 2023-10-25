@@ -27,13 +27,13 @@ class _CuratedStoreState extends State<CuratedStore> {
     "Clothes",
   ];
   List<Icon> categoryIcons = [
-    Icon(Icons.food_bank_outlined),
-    Icon(Icons.pan_tool),
-    Icon(Icons.speaker_group_outlined),
-    Icon(Icons.edit),
-    Icon(Icons.gamepad),
-    Icon(Icons.fork_left_outlined),
-    Icon(Icons.shopping_cart_rounded),
+    const Icon(Icons.food_bank_outlined),
+    const Icon(Icons.pan_tool),
+    const Icon(Icons.speaker_group_outlined),
+    const Icon(Icons.edit),
+    const Icon(Icons.gamepad),
+    const Icon(Icons.fork_left_outlined),
+    const Icon(Icons.shopping_cart_rounded),
   ];
   //
   @override
@@ -45,8 +45,10 @@ class _CuratedStoreState extends State<CuratedStore> {
             padding: const EdgeInsets.only(right: 4.0),
             child: IconButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SearchScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SearchScreen()));
                 },
                 icon: Image.asset(
                   AppIcons.search,
@@ -59,7 +61,7 @@ class _CuratedStoreState extends State<CuratedStore> {
         backgroundColor: Colors.white,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(CupertinoIcons.back),
+          icon: const Icon(CupertinoIcons.back),
           color: Colors.black,
         ),
         title: const Text(
@@ -73,8 +75,8 @@ class _CuratedStoreState extends State<CuratedStore> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 35.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 35.0),
                   child: Text("Categories",
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
@@ -99,7 +101,7 @@ class _CuratedStoreState extends State<CuratedStore> {
                       padding: const EdgeInsets.only(
                         left: 16.0,
                       ),
-                      child: Container(
+                      child: SizedBox(
                         // color: Colors.amber,
                         child: Column(
                           children: [
@@ -115,7 +117,7 @@ class _CuratedStoreState extends State<CuratedStore> {
                               width: SizeConfig.widthMultiplier * 20,
                               child: Text(
                                 categoryNames[index],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 14,
                                   overflow: TextOverflow.ellipsis,
                                 ),
